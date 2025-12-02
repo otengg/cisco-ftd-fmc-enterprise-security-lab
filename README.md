@@ -159,6 +159,5 @@ Planned updates include:
 - SIEM integration (Security Onion / Wazuh)  
 - Multi-site topology with branch FTDs  
 
+This lab reflects practical skills in deploying and managing Cisco Firepower in an enterprise-style environment.
 ---
-
-This repository demonstrates the hands-on skills expected from a **Network Security Engineer** working with Cisco Firepower.
