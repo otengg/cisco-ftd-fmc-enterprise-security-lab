@@ -75,7 +75,11 @@ This lab replicates a real-world environment on a manageable scale.
       |   Central Mgmt       |
       +----------------------+
 
-A PNG version will be added later.
+Below is the full enterprise-style topology used in this Firepower lab:
+
+![FTD-FMC Topology](diagrams/ftd-fmc-topology.png)
+
+**Figure 1 — Cisco FTD + FMC enterprise lab topology**
 
 ---
 
