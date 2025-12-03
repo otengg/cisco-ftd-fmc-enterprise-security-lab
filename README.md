@@ -49,32 +49,6 @@ This lab replicates a real-world environment on a manageable, homelab-friendly s
 
 # 🧩 Lab Architecture
 
-        Internet
-            |
-            v
-  +----------------------+
-  |      Outside         |
-  |      (FTD WAN)       |
-  +----------+-----------+
-             |
-        +----+----+
-        |   FTD   |
-        | Firewall|
-        +----+----+
-             |
-  +----------+-----------+
-  |        Inside        |
-  | (Users / Servers)    |
-  +----------+-----------+
-             |
-        Test Client
-             |
-   (Traffic → FTD → FMC)
-
-  +----------------------+
-  |        FMC           |
-  |   Central Mgmt       |
-  +----------------------+
 
 Below is the full enterprise-style topology used in this Firepower lab:
 
