@@ -1,0 +1,1304 @@
+annotations:
+  - border_color: '#FFFFFF'
+    border_style: ''
+    color: '#1D1D1DFF'
+    rotation: 0
+    thickness: 1
+    type: ellipse
+    x1: 80.0
+    y1: -160.0
+    x2: 160.0
+    y2: 160.0
+    z_index: 0
+smart_annotations: []
+nodes:
+  - boot_disk_size: null
+    configuration:
+      - name: default
+        content: System Bridge
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n0
+    image_definition: null
+    label: EXT-MGMT
+    node_definition: external_connector
+    parameters: {}
+    ram: null
+    tags: []
+    x: 0
+    y: -240
+    interfaces:
+      - id: i0
+        label: port
+        mac_address: null
+        type: physical
+        slot: 0
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n1
+    image_definition: null
+    label: MGMT-SW
+    node_definition: unmanaged_switch
+    parameters: {}
+    ram: null
+    tags: []
+    x: 80
+    y: -120
+    interfaces:
+      - id: i0
+        label: port0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: port1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: port2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: port3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i4
+        label: port4
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i5
+        label: port5
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i6
+        label: port6
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i7
+        label: port7
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i8
+        label: port8
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i9
+        label: port9
+        mac_address: null
+        type: physical
+        slot: 9
+      - id: i10
+        label: port10
+        mac_address: null
+        type: physical
+        slot: 10
+      - id: i11
+        label: port11
+        mac_address: null
+        type: physical
+        slot: 11
+      - id: i12
+        label: port12
+        mac_address: null
+        type: physical
+        slot: 12
+      - id: i13
+        label: port13
+        mac_address: null
+        type: physical
+        slot: 13
+      - id: i14
+        label: port14
+        mac_address: null
+        type: physical
+        slot: 14
+      - id: i15
+        label: port15
+        mac_address: null
+        type: physical
+        slot: 15
+      - id: i16
+        label: port16
+        mac_address: null
+        type: physical
+        slot: 16
+      - id: i17
+        label: port17
+        mac_address: null
+        type: physical
+        slot: 17
+      - id: i18
+        label: port18
+        mac_address: null
+        type: physical
+        slot: 18
+      - id: i19
+        label: port19
+        mac_address: null
+        type: physical
+        slot: 19
+      - id: i20
+        label: port20
+        mac_address: null
+        type: physical
+        slot: 20
+      - id: i21
+        label: port21
+        mac_address: null
+        type: physical
+        slot: 21
+      - id: i22
+        label: port22
+        mac_address: null
+        type: physical
+        slot: 22
+      - id: i23
+        label: port23
+        mac_address: null
+        type: physical
+        slot: 23
+      - id: i24
+        label: port24
+        mac_address: null
+        type: physical
+        slot: 24
+      - id: i25
+        label: port25
+        mac_address: null
+        type: physical
+        slot: 25
+      - id: i26
+        label: port26
+        mac_address: null
+        type: physical
+        slot: 26
+      - id: i27
+        label: port27
+        mac_address: null
+        type: physical
+        slot: 27
+  - boot_disk_size: null
+    configuration:
+      - name: day0-config
+        content: |-
+          {
+              "EULA": "accept",
+              "Hostname": "FMC-HQ",
+              "AdminPassword": "Cisc01@3",
+              "DNS1": "192.168.10.1",
+              "DNS2": "8.8.8.8",
+              "IPv4Mode": "dhcp",
+              "IPv4Addr": "",
+              "IPv4Mask": "",
+              "IPv4Gw": "",
+              "IPv6Mode": "disabled",
+              "IPv6Addr": "",
+              "IPv6Mask": "",
+              "IPv6Gw": ""
+          }
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n2
+    image_definition: null
+    label: FMC
+    node_definition: fmcv
+    parameters: {}
+    ram: null
+    tags: []
+    x: 80
+    y: -240
+    interfaces:
+      - id: i0
+        label: lo
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: eth0
+        mac_address: null
+        type: physical
+        slot: 0
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n3
+    image_definition: null
+    label: Cogent ISP
+    node_definition: csr1000v
+    parameters: {}
+    ram: null
+    tags: []
+    x: -640
+    y: 80
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet7
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet8
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n4
+    image_definition: null
+    label: Verizon ISP
+    node_definition: csr1000v
+    parameters: {}
+    ram: null
+    tags: []
+    x: -640
+    y: -120
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet1
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet2
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet3
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet4
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet5
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet6
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet7
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet8
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: default
+        content: System Bridge
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n5
+    image_definition: null
+    label: ISP
+    node_definition: external_connector
+    parameters: {}
+    ram: null
+    tags: []
+    x: -1000
+    y: 0
+    interfaces:
+      - id: i0
+        label: port
+        mac_address: null
+        type: physical
+        slot: 0
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n6
+    image_definition: null
+    label: ISP-SW
+    node_definition: unmanaged_switch
+    parameters: {}
+    ram: null
+    tags: []
+    x: -840
+    y: 0
+    interfaces:
+      - id: i0
+        label: port0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: port1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: port2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: port3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i4
+        label: port4
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i5
+        label: port5
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i6
+        label: port6
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i7
+        label: port7
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          Building configuration...
+
+          Current configuration : 3921 bytes
+          !
+          ! Last configuration change at 17:58:35 UTC Fri Nov 7 2025
+          !
+          version 15.9
+          service timestamps debug datetime msec
+          service timestamps log datetime msec
+          no service password-encryption
+          !
+          hostname HQ-EDGE-R1
+          !
+          boot-start-marker
+          boot-end-marker
+          !
+          !
+          no logging console
+          !
+          no aaa new-model
+          !
+          !
+          !
+          mmi polling-interval 60
+          no mmi auto-configure
+          no mmi pvc
+          mmi snmp-timeout 180
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          ip dhcp pool FTD_OUTSIDE1
+           network 10.0.1.0 255.255.255.252
+           default-router 10.0.1.1
+           dns-server 8.8.8.8
+          !
+          !
+          !
+          no ip domain lookup
+          ip cef
+          no ipv6 cef
+          !
+          multilink bundle-name authenticated
+          !
+          !
+          !
+          !
+          !
+          redundancy
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          interface GigabitEthernet0/0
+           description To VERIZON-ISP Gi1
+           ip address 198.51.100.2 255.255.255.252
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/1
+           description TO-FTD-HQ01
+           ip address 10.0.1.1 255.255.255.252
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/2
+           no ip address
+           shutdown
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/3
+           no ip address
+           shutdown
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/4
+           no ip address
+           shutdown
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/5
+           no ip address
+           shutdown
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/6
+           no ip address
+           shutdown
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/7
+           no ip address
+           shutdown
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          router bgp 654
+           bgp log-neighbor-changes
+           neighbor 198.51.100.1 remote-as 65002
+           neighbor 198.51.100.1 description VERIZON-ISP
+           !
+           address-family ipv4
+            network 10.10.10.0 mask 255.255.255.0
+            neighbor 198.51.100.1 activate
+           exit-address-family
+          !
+          ip forward-protocol nd
+          !
+          !
+          no ip http server
+          no ip http secure-server
+          ip route 0.0.0.0 0.0.0.0 198.51.100.1
+          ip route 10.10.10.0 255.255.255.0 10.0.1.2
+          !
+          ipv6 ioam timestamp
+          !
+          !
+          !
+          control-plane
+          !
+          banner exec ^C
+          **************************************************************************
+          * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+          * education. IOSv is provided as-is and is not supported by Cisco's      *
+          * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+          * of the IOSv Software or Documentation to any third party for any       *
+          * purposes is expressly prohibited except as otherwise authorized by     *
+          * Cisco in writing.                                                      *
+          **************************************************************************^C
+          banner incoming ^C
+          **************************************************************************
+          * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+          * education. IOSv is provided as-is and is not supported by Cisco's      *
+          * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+          * of the IOSv Software or Documentation to any third party for any       *
+          * purposes is expressly prohibited except as otherwise authorized by     *
+          * Cisco in writing.                                                      *
+          **************************************************************************^C
+          banner login ^C
+          **************************************************************************
+          * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+          * education. IOSv is provided as-is and is not supported by Cisco's      *
+          * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+          * of the IOSv Software or Documentation to any third party for any       *
+          * purposes is expressly prohibited except as otherwise authorized by     *
+          * Cisco in writing.                                                      *
+          **************************************************************************^C
+          !
+          line con 0
+           exec-timeout 0 0
+          line aux 0
+          line vty 0 4
+           exec-timeout 0 0
+           login
+           transport input none
+          !
+          no scheduler allocate
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n7
+    image_definition: null
+    label: HQ-EDGE-R1
+    node_definition: iosv
+    parameters: {}
+    ram: null
+    tags: []
+    x: -400
+    y: -120
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet0/4
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet0/5
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet0/6
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet0/7
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: ios_config.txt
+        content: |-
+          Building configuration...
+
+          Current configuration : 3914 bytes
+          !
+          ! Last configuration change at 17:58:34 UTC Fri Nov 7 2025
+          !
+          version 15.9
+          service timestamps debug datetime msec
+          service timestamps log datetime msec
+          no service password-encryption
+          !
+          hostname HQ-EDGE-R2
+          !
+          boot-start-marker
+          boot-end-marker
+          !
+          !
+          no logging console
+          !
+          no aaa new-model
+          !
+          !
+          !
+          mmi polling-interval 60
+          no mmi auto-configure
+          no mmi pvc
+          mmi snmp-timeout 180
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          ip dhcp pool FTD_OUTSIDE2
+           network 10.0.2.0 255.255.255.252
+           default-router 10.0.2.1
+           dns-server 8.8.8.8
+          !
+          !
+          !
+          no ip domain lookup
+          ip cef
+          no ipv6 cef
+          !
+          multilink bundle-name authenticated
+          !
+          !
+          !
+          !
+          !
+          redundancy
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          !
+          interface GigabitEthernet0/0
+           description To COGENT-ISP Gi1
+           ip address 203.0.113.2 255.255.255.252
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/1
+           description TO-FTD-HQ02
+           ip address 10.0.2.1 255.255.255.252
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/2
+           no ip address
+           shutdown
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/3
+           no ip address
+           shutdown
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/4
+           no ip address
+           shutdown
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/5
+           no ip address
+           shutdown
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/6
+           no ip address
+           shutdown
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          interface GigabitEthernet0/7
+           no ip address
+           shutdown
+           duplex auto
+           speed auto
+           media-type rj45
+          !
+          router bgp 654
+           bgp log-neighbor-changes
+           neighbor 203.0.113.1 remote-as 65001
+           neighbor 203.0.113.1 description COGENT-ISP
+           !
+           address-family ipv4
+            network 10.10.10.0 mask 255.255.255.0
+            neighbor 203.0.113.1 activate
+           exit-address-family
+          !
+          ip forward-protocol nd
+          !
+          !
+          no ip http server
+          no ip http secure-server
+          ip route 0.0.0.0 0.0.0.0 203.0.113.1
+          ip route 10.10.10.0 255.255.255.0 10.0.2.2
+          !
+          ipv6 ioam timestamp
+          !
+          !
+          !
+          control-plane
+          !
+          banner exec ^C
+          **************************************************************************
+          * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+          * education. IOSv is provided as-is and is not supported by Cisco's      *
+          * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+          * of the IOSv Software or Documentation to any third party for any       *
+          * purposes is expressly prohibited except as otherwise authorized by     *
+          * Cisco in writing.                                                      *
+          **************************************************************************^C
+          banner incoming ^C
+          **************************************************************************
+          * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+          * education. IOSv is provided as-is and is not supported by Cisco's      *
+          * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+          * of the IOSv Software or Documentation to any third party for any       *
+          * purposes is expressly prohibited except as otherwise authorized by     *
+          * Cisco in writing.                                                      *
+          **************************************************************************^C
+          banner login ^C
+          **************************************************************************
+          * IOSv is strictly limited to use for evaluation, demonstration and IOS  *
+          * education. IOSv is provided as-is and is not supported by Cisco's      *
+          * Technical Advisory Center. Any use or disclosure, in whole or in part, *
+          * of the IOSv Software or Documentation to any third party for any       *
+          * purposes is expressly prohibited except as otherwise authorized by     *
+          * Cisco in writing.                                                      *
+          **************************************************************************^C
+          !
+          line con 0
+           exec-timeout 0 0
+          line aux 0
+          line vty 0 4
+           exec-timeout 0 0
+           login
+           transport input none
+          !
+          no scheduler allocate
+          !
+          end
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n8
+    image_definition: null
+    label: HQ-EDGE-R2
+    node_definition: iosv
+    parameters: {}
+    ram: null
+    tags: []
+    x: -400
+    y: 80
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: GigabitEthernet0/4
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: GigabitEthernet0/5
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: GigabitEthernet0/6
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: GigabitEthernet0/7
+        mac_address: null
+        type: physical
+        slot: 7
+  - boot_disk_size: null
+    configuration:
+      - name: day0-config
+        content: |-
+          {
+              "EULA": "accept",
+              "Hostname": "FTD-HQ-02",
+              "AdminPassword": "Cisc01@3",
+              "FirewallMode": "routed",
+              "DNS1": "192.168.10.1",
+              "DNS2": "8.8.8.8",
+              "DNS3": "",
+              "IPv4Mode": "dhcp",
+              "IPv4Addr": "",
+              "IPv4Mask": "",
+              "IPv4Gw": "",
+              "IPv6Mode": "disabled",
+              "IPv6Addr": "",
+              "IPv6Mask": "",
+              "IPv6Gw": "",
+              "FmcIp": "192.168.10.100",
+              "FmcRegKey": "Ftd222",
+              "FmcNatId": "",
+              "ManageLocally":"no"
+          }
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n9
+    image_definition: ftdv-7-7-0
+    label: FTD-HQ-02
+    node_definition: ftdv
+    parameters: {}
+    ram: null
+    tags: []
+    x: -160
+    y: 80
+    interfaces:
+      - id: i0
+        label: Management0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: donotuse1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i4
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i5
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i6
+        label: GigabitEthernet0/4
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i7
+        label: GigabitEthernet0/5
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i8
+        label: GigabitEthernet0/6
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i9
+        label: GigabitEthernet0/7
+        mac_address: null
+        type: physical
+        slot: 9
+  - boot_disk_size: null
+    configuration:
+      - name: day0-config
+        content: |-
+          {
+              "EULA": "accept",
+              "Hostname": "FTD-HQ-01",
+              "AdminPassword": "Cisc01@3",
+              "FirewallMode": "routed",
+              "DNS1": "192.168.10.1",
+              "DNS2": "8.8.8.8",
+              "DNS3": "",
+              "IPv4Mode": "dhcp",
+              "IPv4Addr": "",
+              "IPv4Mask": "",
+              "IPv4Gw": "",
+              "IPv6Mode": "disabled",
+              "IPv6Addr": "",
+              "IPv6Mask": "",
+              "IPv6Gw": "",
+              "FmcIp": "192.168.10.100",
+              "FmcRegKey": "Ftd101",
+              "FmcNatId": "",
+              "ManageLocally":"no"
+          }
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n10
+    image_definition: null
+    label: FTD-HQ-01
+    node_definition: ftdv
+    parameters: {}
+    ram: null
+    tags: []
+    x: -160
+    y: -120
+    interfaces:
+      - id: i0
+        label: Management0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i1
+        label: donotuse1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i2
+        label: GigabitEthernet0/0
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i3
+        label: GigabitEthernet0/1
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i4
+        label: GigabitEthernet0/2
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i5
+        label: GigabitEthernet0/3
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i6
+        label: GigabitEthernet0/4
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i7
+        label: GigabitEthernet0/5
+        mac_address: null
+        type: physical
+        slot: 7
+      - id: i8
+        label: GigabitEthernet0/6
+        mac_address: null
+        type: physical
+        slot: 8
+      - id: i9
+        label: GigabitEthernet0/7
+        mac_address: null
+        type: physical
+        slot: 9
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n11
+    image_definition: null
+    label: ubuntu-0
+    node_definition: ubuntu
+    parameters: {}
+    ram: null
+    tags: []
+    x: 80
+    y: 240
+    interfaces:
+      - id: i0
+        label: ens2
+        mac_address: null
+        type: physical
+        slot: 0
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n12
+    image_definition: null
+    label: HQ-CORE-SW1
+    node_definition: ioll2-xe
+    parameters: {}
+    ram: null
+    tags: []
+    x: 80
+    y: 80
+    interfaces:
+      - id: i0
+        label: Loopback0
+        mac_address: null
+        type: loopback
+      - id: i1
+        label: Ethernet0/0
+        mac_address: null
+        type: physical
+        slot: 0
+      - id: i2
+        label: Ethernet0/1
+        mac_address: null
+        type: physical
+        slot: 1
+      - id: i3
+        label: Ethernet0/2
+        mac_address: null
+        type: physical
+        slot: 2
+      - id: i4
+        label: Ethernet0/3
+        mac_address: null
+        type: physical
+        slot: 3
+      - id: i5
+        label: Ethernet1/0
+        mac_address: null
+        type: physical
+        slot: 4
+      - id: i6
+        label: Ethernet1/1
+        mac_address: null
+        type: physical
+        slot: 5
+      - id: i7
+        label: Ethernet1/2
+        mac_address: null
+        type: physical
+        slot: 6
+      - id: i8
+        label: Ethernet1/3
+        mac_address: null
+        type: physical
+        slot: 7
+links:
+  - id: l0
+    n1: n0
+    n2: n1
+    i1: i0
+    i2: i0
+    conditioning: {}
+    label: EXT-MGMT-port<->MGMT-SW-port0
+  - id: l1
+    n1: n2
+    n2: n1
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: fmcv-0-eth0<->MGMT-SW-port1
+  - id: l2
+    n1: n5
+    n2: n6
+    i1: i0
+    i2: i0
+    conditioning: {}
+    label: ISP-port<->ISP-SW-port0
+  - id: l3
+    n1: n6
+    n2: n4
+    i1: i1
+    i2: i2
+    conditioning: {}
+    label: ISP-SW-port1<->Verizon ISP-GigabitEthernet2
+  - id: l4
+    n1: n6
+    n2: n3
+    i1: i2
+    i2: i2
+    conditioning: {}
+    label: ISP-SW-port2<->Cogent ISP-GigabitEthernet2
+  - id: l5
+    n1: n4
+    n2: n7
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: Verizon ISP-GigabitEthernet1<->HQ-EDGE-R1-GigabitEthernet0/0
+  - id: l6
+    n1: n3
+    n2: n8
+    i1: i1
+    i2: i1
+    conditioning: {}
+    label: Cogent ISP-GigabitEthernet1<->HQ-EDGE-R2-GigabitEthernet0/0
+  - id: l7
+    n1: n10
+    n2: n1
+    i1: i0
+    i2: i2
+    conditioning: {}
+    label: FTD-HQ-01-Management0/0<->MGMT-SW-port2
+  - id: l8
+    n1: n9
+    n2: n1
+    i1: i0
+    i2: i3
+    conditioning: {}
+    label: FTD-HQ-02-Management0/0<->MGMT-SW-port3
+  - id: l9
+    n1: n8
+    n2: n9
+    i1: i2
+    i2: i2
+    conditioning: {}
+    label: HQ-EDGE-R2-GigabitEthernet0/1<->FTD-HQ-02-GigabitEthernet0/0
+  - id: l10
+    n1: n7
+    n2: n10
+    i1: i2
+    i2: i2
+    conditioning: {}
+    label: HQ-EDGE-R1-GigabitEthernet0/1<->FTD-HQ-01-GigabitEthernet0/0
+  - id: l11
+    n1: n10
+    n2: n9
+    i1: i4
+    i2: i4
+    conditioning: {}
+    label: FTD-HQ-01-GigabitEthernet0/2<->FTD-HQ-02-GigabitEthernet0/2
+  - id: l12
+    n1: n10
+    n2: n12
+    i1: i3
+    i2: i1
+    conditioning: {}
+    label: FTD-HQ-01-GigabitEthernet0/1<->HQ-CORE-SW1-Ethernet0/0
+  - id: l13
+    n1: n9
+    n2: n12
+    i1: i3
+    i2: i2
+    conditioning: {}
+    label: FTD-HQ-02-GigabitEthernet0/1<->HQ-CORE-SW1-Ethernet0/1
+  - id: l14
+    n1: n11
+    n2: n12
+    i1: i0
+    i2: i3
+    conditioning: {}
+    label: ubuntu-0-ens2<->HQ-CORE-SW1-Ethernet0/2
+lab:
+  description: ''
+  notes: ''
+  title: FTD lab
+  version: 0.3.0

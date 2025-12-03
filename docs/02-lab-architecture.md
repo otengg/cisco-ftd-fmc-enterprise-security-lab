@@ -123,6 +123,15 @@ This documentation is platform-agnostic, focusing on network/security configurat
 - Lightweight, realistic lab layout  
 
 ---
+### 🧩 CML Topology File
+
+The full lab topology for Cisco Modeling Labs is available here:
+
+- [`exports/FTD-FMC-lab-cml-topology.yaml`](exports/FTD-FMC-lab-cml-topology.yaml)
+
+This YAML file can be imported directly into CML to recreate the entire environment.
+
+---
 
 # Next
 

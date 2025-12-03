@@ -80,6 +80,64 @@ Below is the full enterprise-style topology used in this Firepower lab:
 ![FTD-FMC Topology](diagrams/ftd-fmc-topology.png)
 
 **Figure 1 — Cisco FTD + FMC enterprise lab topology**
+---
+
+## 📦 Exported Lab Files
+
+To make this lab fully reproducible and transparent, several exports from FMC and CML are included in the repository.
+
+### 🔹 FMC Policy Export  
+The following package contains the exported configuration from FMC, including:
+
+- Access Control Policy (ACP)
+- NAT policy
+- Intrusion (IPS) policy
+- Platform settings (logging, syslog, etc.)
+- Alert configurations
+
+You can find it here:
+
+- [`exports/FMC-Policy-Export.sfo`](exports/FMC-Policy-Export.sfo)
+
+This file can be imported directly into FMC using:
+System → Tools → Import/Export → Upload Package
+
+
+It will recreate your ACP, IPS, NAT, platform settings, and alerting exactly as configured in the lab.
+
+---
+
+### 🔹 CML Topology Export  
+The full network topology used in this lab is available as a Cisco Modeling Labs (CML) YAML file:
+
+- [`exports/FTD-FMC-lab-cml-topology.yaml`](exports/FTD-FMC-lab-cml-topology.yaml)
+
+This file can be imported directly into Cisco Modeling Labs to reproduce the:
+
+- ISP paths  
+- Edge routers  
+- FTD firewalls (HQ-01, HQ-02)  
+- Management switch  
+- FMC server  
+- Inside LAN + test client  
+
+Import using:
+CML → File → Import → Select YAML File
+
+This creates a fully functional copy of the network for testing, learning, or extending the lab.
+
+---
+
+## 🧩 Why These Exports Matter
+
+Including exported files makes the repo:
+
+- **Reproducible** — anyone can recreate your exact environment  
+- **Auditable** — reviewers can see the actual production configuration  
+- **Professional** — mirrors real-world change control documentation  
+- **Extensible** — future lab upgrades (VPN, SSL decryption, HA) can easily reuse the same base topology  
+
+These exports complete the end-to-end documentation for the Firepower Enterprise Lab.
 
 ---
 
