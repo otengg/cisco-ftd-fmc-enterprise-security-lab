@@ -1,0 +1,15 @@
+{
+    "EULA": "accept",
+    "Hostname": "FMC-HQ",
+    "AdminPassword": "Cisc01@3",
+    "DNS1": "1.1.1.1",
+    "DNS2": "8.8.8.8",
+    "IPv4Mode": "dhcp",
+    "IPv4Addr": "",
+    "IPv4Mask": "",
+    "IPv4Gw": "",
+    "IPv6Mode": "disabled",
+    "IPv6Addr": "",
+    "IPv6Mask": "",
+    "IPv6Gw": ""
+}

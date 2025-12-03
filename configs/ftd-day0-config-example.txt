@@ -1,0 +1,48 @@
+# Cisco FTD Day 0 Configuration (Example / Sanitized)
+# This file reflects the initial setup performed on the FTD firewall
+# before it is registered to FMC.
+
+> show network
+
+===============[ System Information ]===============
+Hostname: FTD-HQ-01
+Management Interface: Management0/0
+Management IP: 192.168.20.10
+Netmask: 255.255.255.0
+Gateway: 192.168.20.1
+DNS Servers: 1.1.1.1, 8.8.8.8
+NTP Servers: pool.ntp.org
+----------------------------------------------------
+
+# Example commands used:
+
+configure network ipv4 manual 192.168.20.10 255.255.255.0 192.168.20.1
+configure network dns servers 1.1.1.1 8.8.8.8
+configure network ntp servers pool.ntp.org
+
+# Test connectivity:
+
+ping 192.168.20.5        # FMC
+ping 8.8.8.8             # Internet
+ping google.com          # DNS resolution
+
+# Prepare for FMC registration:
+
+configure manager add <FMC-IP> <REGISTRATION-KEY>
+
+# Verify:
+
+show managers
+
+# Expected output:
+
+Managed locally?: No
+Manager address: <FMC-IP>
+Registration key: <REGISTRATION-KEY>
+Registration: PENDING or COMPLETED
+
+
+See bootstrap template:
+- ftd-hq-01-bootstrap.json
+- ftd-hq-02-bootstrap.json
+- fmc-hq-bootstrap.json
