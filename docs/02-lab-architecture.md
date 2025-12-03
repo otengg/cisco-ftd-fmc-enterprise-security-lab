@@ -1,94 +1,131 @@
 # 02 — Lab Architecture
 
-This document describes the logical and physical layout of the Cisco FTD + FMC lab.
-
+This document describes the logical and physical layout of the Cisco FTD + FMC lab.  
 The design is intentionally simple but aligned with how Firepower is typically deployed in production.
 
 ---
 
-## High-Level Topology
+# High-Level Topology
 
-```text
-                Internet / Upstream
-                        |
-                        v
-              +----------------------+
-              |   FTD Outside (WAN)  |
-              +----------+-----------+
-                         |
-                    +----+----+
-                    |   FTD   |
-                    | Firewall|
-                    +----+----+
-                         |
-              +----------+-----------+
-              |   FTD Inside (LAN)   |
-              +----------+-----------+
-                         |
-                    Test Client
-                         |
+            Internet / Upstream
+                    |
+                    v
+        +---------------------------+
+        |      FTD Outside (WAN)   |
+        +-------------+-------------+
+                      |
+                 +----+----+
+                 |   FTD   |
+                 | Firewall|
+                 +----+----+
+                      |
+        +-------------+-------------+
+        |       FTD Inside (LAN)    |
+        +-------------+-------------+
+                      |
+                  Test Client
                 (User / Server VM)
+                      |
+        +----------------------------+
+        |           FMC              |
+        |    Central Management      |
+        +----------------------------+
 
-              +----------------------+
-              |         FMC          |
-              | Central Management   |
-              +----------------------+
+---
 
-## Roles of Each Component
+# Roles of Each Component
 
-### **Firepower Threat Defense (FTD)**
+## Firepower Threat Defense (FTD)
 
 - Acts as the core firewall  
 - Separates **inside** and **outside** networks  
-- Enforces **Access Control Policies (ACP)**  
+- Enforces Access Control Policies (ACP)  
 - Performs NAT (PAT and static when needed)  
-- Sends all logs, events, and telemetry to FMC  
+- Sends logs, events, and telemetry to FMC  
 
 ---
 
-### **Firepower Management Center (FMC)**
+## Firepower Management Center (FMC)
 
-- Central management and visibility platform  
+- Provides centralized management  
 - Stores all security policies and objects  
-- Pushes configurations to FTD  
-- Provides dashboards and event views for:  
-  - Connections  
-  - Intrusions (IPS)  
-  - File/Malware  
+- Pushes configuration to FTD  
+- Provides dashboards for:
+  - Connection events  
+  - Intrusion events (IPS)  
+  - File/Malware analysis  
   - URL filtering  
-- Performs centralized logging and reporting  
+- Handles logging and reporting  
 
 ---
 
-### **Test Client**
+## Test Client
 
 Located on the **inside** network.
 
-Used for generating test traffic such as:
+Used for generating traffic such as:
 
 - HTTP / HTTPS  
 - DNS  
 - ICMP  
-- Curl requests  
+- File downloads  
 
 Used to validate:
 
 - NAT  
-- Access Control Policy matches  
+- ACP matches  
 - IPS alerts  
 - URL filtering  
-- Logging visibility in FMC  
+- Logging visibility  
 
 ---
 
-## Networks and Interfaces (Example)
+# Networks and Interfaces (Example)
 
-You can change the IPs to match your environment.
+You may adjust these to match your environment.
 
-**Inside (LAN):** `10.0.10.0/24`  
-- FTD Inside: `10.0.10.1`  
-- Test client: `10.0.10.100`  
+### Inside (LAN)
+- Network: `10.0.10.0/24`
+- FTD Inside interface: `10.0.10.1`
+- Test client: `10.0.10.100`
 
-**Outside (WAN):** `192.168.100.0/24`  
-- FTD Outside: `192.168.100.10`  
-- Upstream gatewa
+### Outside (WAN)
+- Network: `192.168.100.0/24`
+- FTD Outside interface: `192.168.100.10`
+- Upstream gateway: `192.168.100.1`
+
+### Management (Optional)
+- FMC + FTD Management IPs
+- Often placed on a dedicated VLAN  
+
+---
+
+# Platform Choices
+
+This lab works on:
+
+- Proxmox  
+- VMware Workstation / ESXi  
+- EVE-NG  
+- CML (Cisco Modeling Labs)  
+- Any hypervisor supporting FTD/FMC images  
+
+This documentation is platform-agnostic, focusing on network/security configuration rather than hypervisor specifics.
+
+---
+
+# Design Goals
+
+- Clear separation between inside/outside zones  
+- Basic static routing for simplicity  
+- NAT for inside → outside communication  
+- Centralized logging and policy management  
+- Lightweight, realistic lab layout  
+
+---
+
+# Next
+
+Continue to:
+
+`docs/03-ftd-day0-setup.md`  
