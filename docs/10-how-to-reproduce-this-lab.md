@@ -1,15 +1,15 @@
-```markdown
 # 11 — How to Reproduce This Lab
 
 This document explains how to rebuild the entire Cisco FTD + FMC Enterprise Security Lab from scratch.  
-It is designed to be simple, clear, and reproducible for anyone following along.
+It is designed to be simple, clear, and fully reproducible for anyone following along.
 
 ---
 
 # 🧱 1. Requirements
 
 ### Hardware / Virtualization
-Any virtualization platform works:
+You may use any virtualization platform:
+
 - Proxmox  
 - VMware Workstation / ESXi  
 - EVE-NG  
@@ -22,11 +22,12 @@ Any virtualization platform works:
 - Ubuntu ISO (for test client)
 
 ### Minimum Resources
-| Component | vCPU | RAM | Storage |
-|----------|------|-----|---------|
-| FMC      | 4    | 8–16 GB | 100 GB |
-| FTD      | 2–4  | 8 GB | 20–40 GB |
-| Client VM | 1–2 | 2 GB | 10 GB |
+
+| Component  | vCPU | RAM      | Storage |
+|------------|------|----------|---------|
+| FMC        | 4    | 8–16 GB  | 100 GB  |
+| FTD        | 2–4  | 8 GB     | 20–40 GB |
+| Client VM  | 1–2  | 2 GB     | 10 GB    |
 
 ---
 
@@ -40,14 +41,16 @@ diff
 Copy code
 
 Recommended layout:
+
 - Two ISP paths  
 - Two edge routers  
 - Two FTD firewalls  
-- Management switch  
+- Dedicated management switch  
 - FMC server  
-- Test client LAN  
+- Test client on inside LAN  
 
-Base your network on the IP schema shown in:
+Refer to the IP schema in:
+
 docs/02-lab-architecture.md
 
 yaml
@@ -57,7 +60,7 @@ Copy code
 
 # 🔧 3. Deploy and Configure FTD Firewalls
 
-Use the provided Day-0 config examples:
+Use the provided Day 0 configuration files:
 
 configs/ftd-day0-config-example.txt
 configs/ftd-hq-01-bootstrap.json
@@ -66,14 +69,14 @@ configs/ftd-hq-02-bootstrap.json
 markdown
 Copy code
 
-Steps:
+### Steps:
 
-1. Deploy FTD image
-2. Apply bootstrap on first boot (if supported by your platform)
-3. Set management IP manually if needed
-4. Verify DNS + NTP
-5. Ping FMC
-6. Add manager:
+1. Deploy the FTD image  
+2. Apply the bootstrap JSON on first boot (if supported)  
+3. Otherwise, manually configure the management IP  
+4. Verify DNS and NTP  
+5. Confirm FTD can ping FMC  
+6. Add FMC as a manager:
 
 ```bash
 configure manager add <FMC-IP> <REG-KEY>
@@ -84,18 +87,19 @@ arduino
 Copy code
 docs/04-fmc-setup-and-registration.md
 Steps:
-
 Deploy FMC image
 
-Complete setup wizard
+Complete the setup wizard
 
 Configure DNS + NTP
 
-Create registration key
+Apply updates (recommended)
 
-Add device
+Create an FMC registration key
 
-Confirm green health status
+Add the FTD device
+
+Confirm FTD shows a green/healthy status
 
 🧱 5. Build Security Policies
 Follow:
@@ -105,13 +109,13 @@ Copy code
 docs/05-access-control-policy.md
 Create and deploy:
 
-ACP rules
+Access Control Policy (ACP) rules
 
 IPS policy
 
-URL filtering
+URL filtering policy
 
-Logging options
+Logging settings
 
 🛰 6. Configure NAT Rules
 Follow:
@@ -121,13 +125,13 @@ Copy code
 docs/06-nat-configuration.md
 Set up:
 
-Dynamic PAT
+Dynamic PAT (inside → outside)
 
 Static NAT (optional)
 
 Identity NAT (optional)
 
-NAT verification
+Validate NAT matches in FMC
 
 🧪 7. Test the Environment
 Follow:
@@ -145,29 +149,51 @@ ping 8.8.8.8
 nslookup cisco.com
 Check logs in FMC:
 
-Connections
+Analysis → Connections
 
-Intrusions
+Analysis → Intrusion
 
-Malware
+Analysis → Malware
 
-URL filtering
+Analysis → URL
 
-NAT
+Analysis → NAT
 
 🧯 8. Troubleshoot if Needed
 Use:
 
 Copy code
 docs/08-troubleshooting.md
-Check:
+Validate:
 
-FMC registration
+FMC registration status
 
 NAT rule order
 
-ACP logging
+ACP rule matches
 
 IPS inspection
 
-Packet captures
+Packet captures for inside/outside traffic
+
+🎉 Complete
+By following these steps, you will have a fully reproduced Cisco FTD + FMC Enterprise Security Lab with:
+
+Centralized management
+
+Access Control Policies
+
+NAT and routing
+
+IPS, URL filtering, and malware analysis
+
+Full visibility in FMC
+
+Real test traffic simulation
+
+This ensures a clean, repeatable deployment for learning and demonstration.
+
+yaml
+Copy code
+
+---
