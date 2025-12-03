@@ -1,37 +1,37 @@
-11 — How to Reproduce This Lab
+# 11 — How to Reproduce This Lab
 
-This document explains how to rebuild the entire Cisco FTD + FMC Enterprise Security Lab from scratch.
-It is designed to be simple, clear, and fully reproducible for anyone following along.
+This document explains how to rebuild the entire Cisco FTD + FMC Enterprise Security Lab from scratch.  
+It is designed to be simple, clear, and fully reproducible.
 
-🧱 1. Requirements
-Hardware / Virtualization
+---
 
+# 🧱 1. Requirements
+
+## Hardware / Virtualization  
 You may use any virtualization platform:
 
-Proxmox
+- Proxmox  
+- VMware Workstation / ESXi  
+- EVE-NG  
+- Cisco Modeling Labs (CML)  
+- VirtualBox (not officially supported for FTD)
 
-VMware Workstation / ESXi
+## Files Needed  
+- Cisco FTDv image  
+- Cisco FMCv image  
+- Ubuntu ISO (for test client)
 
-EVE-NG
+## Minimum Resources
 
-Cisco Modeling Labs (CML)
+| Component  | vCPU | RAM      | Storage |
+|------------|------|----------|---------|
+| FMC        | 4    | 8–16 GB  | 100 GB  |
+| FTD        | 2–4  | 8 GB     | 20–40 GB |
+| Client VM  | 1–2  | 2 GB     | 10 GB    |
 
-VirtualBox (FTD not officially supported)
+---
 
-Files Needed
-
-Cisco FTDv image
-
-Cisco FMCv image
-
-Ubuntu ISO (for test client)
-
-Minimum Resources
-Component	vCPU	RAM	Storage
-FMC	4	8–16 GB	100 GB
-FTD	2–4	8 GB	20–40 GB
-Client VM	1–2	2 GB	10 GB
-🌐 2. Import the Topology
+# 🌐 2. Import the Topology
 
 Use the provided topology diagram:
 
@@ -39,23 +39,20 @@ diagrams/ftd-fmc-topology.png
 
 Recommended layout:
 
-Two ISP paths
+- Two ISP paths  
+- Two edge routers  
+- Two FTD firewalls  
+- Dedicated management switch  
+- FMC server  
+- Test client on inside LAN  
 
-Two edge routers
-
-Two FTD firewalls
-
-Dedicated management switch
-
-FMC server
-
-Test client on inside LAN
-
-Refer to the IP layout in:
+Use the IP layout from:
 
 docs/02-lab-architecture.md
 
-🔧 3. Deploy and Configure FTD Firewalls
+---
+
+# 🔧 3. Deploy and Configure FTD Firewalls
 
 Use the provided Day 0 configuration files:
 
@@ -63,134 +60,123 @@ configs/ftd-day0-config-example.txt
 configs/ftd-hq-01-bootstrap.json
 configs/ftd-hq-02-bootstrap.json
 
-Steps:
 
-Deploy the FTD image
+## Steps:
 
-Apply the bootstrap JSON on first boot (if supported)
-
-Otherwise, manually configure the management IP
-
-Verify DNS and NTP
-
-Confirm FTD can ping FMC
-
-Add FMC as a manager:
+1. Deploy the FTD image  
+2. Apply the bootstrap JSON on first boot (if supported)  
+3. Otherwise, manually configure the management IP  
+4. Verify DNS and NTP  
+5. Confirm FTD can ping FMC  
+6. Add FMC as manager:
 
 configure manager add <FMC-IP> <REG-KEY>
 
-🧠 4. Deploy and Configure FMC
+---
+
+# 🧠 4. Deploy and Configure FMC
 
 Follow:
 
 docs/04-fmc-setup-and-registration.md
 
-Steps:
 
-Deploy FMC image
+## Steps:
 
-Complete setup wizard
+- Deploy FMC image  
+- Complete setup wizard  
+- Configure DNS + NTP  
+- Apply updates  
+- Create a registration key  
+- Add the FTD device  
+- Confirm device health is green  
 
-Configure DNS + NTP
+---
 
-Apply updates (recommended)
-
-Create a registration key
-
-Add the FTD device
-
-Confirm device health is green
-
-🧱 5. Build Security Policies
+# 🧱 5. Build Security Policies
 
 Follow:
 
 docs/05-access-control-policy.md
 
+
 Create and deploy:
 
-Access Control Policy (ACP)
+- Access Control Policy (ACP)  
+- IPS policy  
+- URL filtering  
+- Logging configuration  
 
-IPS policy
+---
 
-URL filtering policy
-
-Logging settings
-
-🛰 6. Configure NAT Rules
+# 🛰 6. Configure NAT Rules
 
 Follow:
 
 docs/06-nat-configuration.md
 
+
 Set up:
 
-Dynamic PAT
+- Dynamic PAT  
+- Static NAT (optional)  
+- Identity NAT (optional)  
+- Validate NAT in FMC  
 
-Static NAT (optional)
+---
 
-Identity NAT (optional)
-
-Validate NAT translations in FMC
-
-🧪 7. Test the Environment
+# 🧪 7. Test the Environment
 
 Follow:
 
 docs/07-testing-and-event-analysis.md
 
+
 From the test VM:
 
 curl ifconfig.me
 curl https://google.com
+
 ping 8.8.8.8
 nslookup cisco.com
 
 
+
 Check logs in FMC:
 
-Connections
+- Connections  
+- Intrusions  
+- Malware  
+- URL filtering  
+- NAT  
 
-Intrusions
+---
 
-Malware
-
-URL filtering
-
-NAT events
-
-🧯 8. Troubleshoot if Needed
+# 🧯 8. Troubleshoot if Needed
 
 Follow:
 
 docs/08-troubleshooting.md
 
-Validate:
 
-FMC registration
+Confirm:
 
-NAT rule order
+- FMC registration  
+- NAT rule order  
+- ACP rule hits  
+- IPS inspection  
+- Packet captures inside/outside  
 
-ACP rule matches
+---
 
-IPS inspection
+# 🎉 Complete
 
-Packet captures (inside/outside)
+You now have a fully reproduced Cisco FTD + FMC Enterprise Security Lab with:
 
-🎉 Complete
+- Centralized FMC management  
+- ACP + IPS + URL + Malware inspection  
+- NAT + routing  
+- Full event visibility  
+- Real-world test traffic  
 
-At this point, you have successfully reproduced the entire Cisco FTD + FMC Enterprise Security Lab with:
-
-Centralized FMC management
-
-ACP and IPS enforcement
-
-NAT + routing
-
-URL filtering & file inspection
-
-Full event visibility
-
-Functional test traffic
-
-This ensures a clean, repeatable enterprise-style deployment.
+This ensures a repeatable, enterprise-style deployment.
