@@ -13,7 +13,7 @@ This is the “first boot” stage of the firewall.
 
 ---
 
-## 1. Accessing the FTD Console
+# 1. Accessing the FTD Console
 
 Once deployed in your hypervisor:
 
@@ -26,31 +26,29 @@ These credentials are required for FMC registration.
 
 ---
 
-## 2. Configure the Management Interface
+# 2. Configure the Management Interface
 
-Management is configured through the CLI.
+Management is configured entirely via the CLI.
 
-Example:
+### Example:
 
 ```bash
 configure network ipv4 manual 192.168.20.10 255.255.255.0 192.168.20.1
 
 Verify:
-
 show network
-
 
 Make sure:
 
-IP address is correct
+The IP address is correct
 
-Gateway is reachable
+The gateway is reachable
 
-Management interface is up
+The management interface is up
 
 3. Configure DNS and NTP
 
-Accurate DNS and NTP settings are required for successful registration with FMC.
+Accurate DNS and NTP settings are required for successful FTD → FMC communication.
 
 Configure DNS:
 configure network dns servers 1.1.1.1 8.8.8.8
@@ -62,15 +60,18 @@ configure network ntp servers pool.ntp.org
 
 Make sure the FTD can reach FMC and the internet.
 
+Test FMC reachability:
 ping <FMC-IP>
+
+Test DNS/internet:
 ping google.com
 
 
-If DNS fails, fix it before continuing.
+If DNS fails, correct DNS configuration before continuing.
 
 5. Prepare for FMC Registration
 
-Add the FMC as a manager:
+Add FMC as the manager:
 
 configure manager add <FMC-IP> <REGISTRATION-KEY>
 
@@ -79,40 +80,41 @@ Verify the manager status:
 
 show managers
 
-
 Expected output:
 
-FMC IP displayed
+FMC IP is displayed
 
-Status: Pending (before registration)
+Status is Pending until FMC completes registration
 
-Status: Completed (after FMC connects)
-
-6. Check System Health (Optional but Recommended)
+6. Optional: System Health Validation
 
 Enter diagnostic mode:
 
 system support diagnostic-cli
 
 
-Inside the diagnostic CLI, check interfaces and routes:
+Inside diagnostic mode:
 
 show interface ip brief
 show route
 
 
-These confirm routing and interface setup.
+This helps confirm routing and interface status.
 
 Summary
 
-By the end of Day 0:
+At the end of Day 0:
 
 Management IP is configured
 
-DNS and NTP are working
+DNS and NTP are set correctly
 
-Connectivity with FMC is confirmed
+Connectivity to FMC is verified
 
 Registration key is added
 
 FTD is ready for FMC onboarding
+
+Continue to:
+
+docs/04-fmc-setup-and-registration.md
