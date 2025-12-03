@@ -1,0 +1,15 @@
+# Packet capture cheat sheet for FTD (run on FTD CLI)
+
+# Capture inside interface traffic from a specific client:
+capture CAP_INSIDE type raw-data interface inside match ip host 10.0.10.100 any
+
+# Capture outside interface traffic to a specific destination:
+capture CAP_OUTSIDE type raw-data interface outside match ip any host 8.8.8.8
+
+# Show capture output:
+show capture CAP_INSIDE
+show capture CAP_OUTSIDE
+
+# Clear captures:
+no capture CAP_INSIDE
+no capture CAP_OUTSIDE
